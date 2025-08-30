@@ -1,1 +1,96 @@
+:root{
+  --bg:#0b0b0b;      /* fondo general */
+  --card:#161616;    /* tarjetas */
+  --ink:#eaeaea;     /* texto principal */
+  --muted:#a3a3a3;   /* texto suave */
+  --red:#e63946;     /* acento rojo */
+  --red-2:#ff5260;   /* rojo hover */
+  --ok:#2ecc71;      /* correcto */
+  --bad:#e74c3c;     /* incorrecto */
+  --line:#ffffff;    /* líneas claras */
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+}
+
+/* layout */
+.wrap{max-width:960px;margin:auto;padding:18px}
+.header, .footer{background:#0f0f0f;border-bottom:1px solid #1e1e1e}
+.header h1{margin:.3rem 0;font-weight:800}
+.subtitle{margin:0;color:var(--muted)}
+
+.panel{
+  background:var(--card);
+  border:1px solid #1f1f1f;
+  border-radius:14px;
+  padding:18px;
+  margin:14px 0;
+  box-shadow:0 4px 24px rgba(0,0,0,.35);
+}
+
+h2{margin:.25rem 0 1rem 0}
+.muted{color:var(--muted)}
+
+/* controles */
+label{margin-right:12px;display:inline-flex;gap:.5rem;align-items:center}
+select{
+  background:#0f0f0f;color:var(--ink);
+  border:1px solid #333;border-radius:8px;padding:6px 10px
+}
+input[type="checkbox"]{transform:translateY(1px)}
+
+button{
+  border:1px solid var(--red);
+  background:var(--red);
+  color:#fff;
+  padding:9px 14px;
+  border-radius:10px;
+  cursor:pointer;
+  transition:all .12s ease;
+}
+button:hover{background:var(--red-2);border-color:var(--red-2)}
+button:disabled{background:#3a3a3a;border-color:#2d2d2d;color:#7a7a7a;cursor:not-allowed}
+
+.status{display:flex;gap:16px;align-items:center;margin-top:10px}
+#timer{font-weight:800}
+
+/* opciones */
+#lista-opciones{padding-left:20px;margin:0}
+#lista-opciones .opt{
+  display:block;width:100%;margin:8px 0;text-align:left;padding:12px 14px;
+  border-radius:10px;border:1px solid #2a2a2a;background:#0f0f0f;color:var(--ink);
+  cursor:pointer;
+}
+#lista-opciones .opt:hover{border-color:#3a3a3a}
+#lista-opciones .opt:disabled{opacity:1;color:var(--ink)}
+
+.is-selected{outline:2px solid var(--red)}
+.is-correct{background:rgba(46,204,113,.15)!important;border-color:var(--ok);color:#b7ffcf}
+.is-wrong{background:rgba(231,76,60,.15)!important;border-color:var(--bad);color:#ffb6ae}
+
+.actions{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.5rem}
+
+/* recta real */
+#grafico{
+  position:relative;margin-top:18px;height:72px;
+  border-top:3px solid var(--line);
+  background:linear-gradient(to right,transparent 50%,transparent 50%);
+}
+.mark{
+  position:absolute;top:-12px;width:16px;height:16px;
+  border:3px solid var(--red);border-radius:50%;background:#0b0b0b;
+  transform:translateX(-50%);
+}
+.mark.filled{background:var(--red)}
+.seg{position:absolute;top:-2px;height:4px;background:var(--red)}
+.legend{font-size:12px;position:absolute;top:20px;transform:translateX(-50%);color:var(--ink)}
+
+.footer{border-top:1px solid #1e1e1e}
+.footer p{margin:0;text-align:center}
 
